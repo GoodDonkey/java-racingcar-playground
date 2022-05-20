@@ -72,4 +72,16 @@ class CarLocationTest {
         assertThat(carLocation.getLocation()).isEqualTo(0);
     }
     
+    @Test
+    @DisplayName("위치를 비교할 수 있는가?")
+    void test6() {
+        CarLocation location1 = new CarLocation();
+        CarLocation location2 = new CarLocation();
+    
+        while (!location2.changeLocation()) {
+            assertThat(location2).isEqualTo(location1);
+        }
+        assertThat(location2).isGreaterThan(location1);
+        assertThat(location1).isLessThan(location2);
+    }
 }

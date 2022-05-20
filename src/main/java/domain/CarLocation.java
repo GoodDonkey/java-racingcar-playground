@@ -2,8 +2,8 @@ package domain;
 
 import java.util.Random;
 
-public class CarLocation {
-    private int location = 0;
+public class CarLocation implements Comparable<CarLocation>{
+    private Integer location = 0;
     
     public CarLocation() {
     }
@@ -20,5 +20,10 @@ public class CarLocation {
     
     public int getLocation() {
         return location;
+    }
+    
+    @Override
+    public int compareTo(CarLocation o) {
+        return this.location.compareTo(o.location);
     }
 }
