@@ -11,6 +11,10 @@ public class CarName {
         this.name = name;
     }
     
+    public CarName(CarName other) {
+        this.name = other.name;
+    }
+    
     private void assertLengthUnder5(String name) {
         if (name.length() > 5) {
             throw new IllegalCarNameException("자동차 이름은 5글자를 초과할 수 없습니다.");
