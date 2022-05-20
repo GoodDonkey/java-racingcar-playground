@@ -1,26 +1,19 @@
-## [NEXTSTEP 플레이그라운드의 미션 진행 과정](https://github.com/next-step/nextstep-docs/blob/master/playground/README.md)
 
----
-## 학습 효과를 높이기 위해 추천하는 미션 진행 방법
+# Car
+- 이름을 가진다.
+- 위치를 가진다.
 
----
-1. 피드백 강의 전까지 미션 진행 
-> 피드백 강의 전까지 혼자 힘으로 미션 진행. 미션을 진행하면서 하나의 작업이 끝날 때 마다 add, commit
-> 예를 들어 다음 숫자 야구 게임의 경우 0, 1, 2단계까지 구현을 완료한 후 push
+# CarName
+- 문자열을 가진다.
+- 길이는 5 이하이다.
 
-![mission baseball](https://raw.githubusercontent.com/next-step/nextstep-docs/master/playground/images/mission_baseball.png)
+# CarLocation
+- 숫자를 가진다.
+- 1회 당 1번 위치를 결정한다.
+- 랜덤한 값에 따라 위치를 더할 수 있다.
 
----
-2. 피드백 앞 단계까지 미션 구현을 완료한 후 피드백 강의를 학습한다.
-
----
-3. Git 브랜치를 master 또는 main으로 변경한 후 피드백을 반영하기 위한 새로운 브랜치를 생성한 후 처음부터 다시 미션 구현을 도전한다.
-
-```
-git branch -a // 모든 로컬 브랜치 확인
-git checkout master // 기본 브랜치가 master인 경우
-git checkout main // 기본 브랜치가 main인 경우
-
-git checkout -b 브랜치이름
-ex) git checkout -b apply-feedback
-```
+# Game
+- 게임을 시작시킨다.
+- Car 들을 가진다.
+- 자동차가 움직이는 횟수에 따라 게임을 수행한다.
+- 최종 위치를 확인하고 승자를 확인한다.
