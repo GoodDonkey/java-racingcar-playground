@@ -2,10 +2,14 @@ package domain;
 
 import java.util.Random;
 
-public class CarLocation implements Comparable<CarLocation>{
+public final class CarLocation implements Comparable<CarLocation>{
     private Integer location = 0;
     
     public CarLocation() {
+    }
+    
+    public CarLocation(CarLocation o) {
+        this.location = o.getLocation();
     }
     
     public boolean changeLocation() {
@@ -25,5 +29,10 @@ public class CarLocation implements Comparable<CarLocation>{
     @Override
     public int compareTo(CarLocation o) {
         return this.location.compareTo(o.location);
+    }
+    
+    @Override
+    public String toString() {
+        return "CarLocation{" + "location=" + location + '}';
     }
 }
