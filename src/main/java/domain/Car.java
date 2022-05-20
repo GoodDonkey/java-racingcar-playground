@@ -9,6 +9,11 @@ public class Car {
         this.carLocation = new CarLocation();
     }
     
+    public Car(Car other) {
+        this.carName = new CarName(other.carName);
+        this.carLocation = new CarLocation(other.carLocation);
+    }
+    
     public CarName getCarName() {
         return carName;
     }
