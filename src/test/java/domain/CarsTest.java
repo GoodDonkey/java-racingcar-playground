@@ -45,5 +45,22 @@ class CarsTest {
         }
         // assert 코드 보류
     }
-
+    
+    @Test
+    @DisplayName("가장 멀리간 차를 뽑아 반환하는지 테스트")
+    void test3() {
+        // given
+        String[] names = {"a", "b", "c"};
+        Integer[] locations = {3, 4, 4};
+        Cars cars = new Cars(names, locations);
+        
+        // when
+        CarNames carNames = cars.fartherOnes();
+        
+        // then
+        assertThat(carNames.size()).isEqualTo(2);
+        assertThat(carNames).contains(new CarName("b"),
+                                      new CarName("c"));
+        assertThat(carNames).doesNotContain(new CarName("a"));
+    }
 }

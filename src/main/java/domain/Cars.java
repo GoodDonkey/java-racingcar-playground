@@ -1,8 +1,6 @@
 package domain;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class Cars implements Iterable<Car> {
     
@@ -12,6 +10,15 @@ public class Cars implements Iterable<Car> {
         String[] split = names.split(",");
         for (int i = 0; i < split.length; i++) {
             cars.add(new Car(split[i]));
+        }
+    }
+    
+    protected Cars(String[] names, Integer[] locations) {
+        if (names.length != locations.length) {
+            throw new IllegalArgumentException("길이가 같아야합니다.");
+        }
+        for (int i = 0; i < names.length; i++) {
+            cars.add(new Car(names[i], locations[i]));
         }
     }
     
@@ -38,6 +45,21 @@ public class Cars implements Iterable<Car> {
         }
         
         this.cars = carsTemp;
+    }
+    
+    public CarNames fartherOnes() {
+        CarNames carNames = new CarNames();
+        cars.sort(Comparator.comparing(Car::getCarLocation).reversed());
+        carNames.add(cars.get(0));
+        for (int i = 1; i < cars.size(); i++) {
+            if (cars.get(i).compareTo(cars.get(i - 1)) == 0) {
+                carNames.add(cars.get(i));
+                continue;
+            }
+            break;
+        }
+        
+        return carNames;
     }
     
     @Override

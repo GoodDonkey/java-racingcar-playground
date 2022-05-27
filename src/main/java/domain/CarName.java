@@ -24,4 +24,16 @@ public class CarName {
     public int length() {
         return name.length();
     }
+    
+    @Override
+    public String toString() {
+        return name;
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        assert obj instanceof CarName;
+        CarName other = (CarName) obj;
+        return this.name.equals(other.name);
+    }
 }

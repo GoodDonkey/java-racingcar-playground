@@ -1,6 +1,8 @@
 package domain;
 
-public class Car {
+import java.util.Comparator;
+
+public class Car implements Comparable<Car> {
     private final CarName carName;
     private CarLocation carLocation;
     
@@ -12,6 +14,11 @@ public class Car {
     public Car(Car other) {
         this.carName = new CarName(other.carName);
         this.carLocation = new CarLocation(other.carLocation);
+    }
+    
+    protected Car(String name, Integer location) {
+        this.carName = new CarName(name);
+        this.carLocation = new CarLocation(location);
     }
     
     public CarName getCarName() {
@@ -27,5 +34,15 @@ public class Car {
             return true;
         }
         return false;
+    }
+    
+    @Override
+    public String toString() {
+        return carName.toString();
+    }
+    
+    @Override
+    public int compareTo(Car o) {
+        return this.carLocation.compareTo(o.carLocation);
     }
 }

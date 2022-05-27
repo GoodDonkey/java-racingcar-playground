@@ -12,6 +12,10 @@ public final class CarLocation implements Comparable<CarLocation>{
         this.location = o.getLocation();
     }
     
+    protected CarLocation(Integer location) {
+        this.location = location;
+    }
+    
     public boolean changeLocation() {
         Random random = new Random();
         int number = random.nextInt(9);
@@ -33,6 +37,6 @@ public final class CarLocation implements Comparable<CarLocation>{
     
     @Override
     public String toString() {
-        return "CarLocation{" + "location=" + location + '}';
+        return location.toString();
     }
 }
