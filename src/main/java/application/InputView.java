@@ -42,5 +42,9 @@ public class InputView {
             System.out.println(IllegalCarNameException.message);
             throw new IllegalCarNameException();
         }
+        if (Arrays.stream(split).distinct().count() != split.length) {
+            System.out.println("같은 이름이 2개 이상 존재합니다.");
+            throw new IllegalCarNameException("같은 이름이 2개 이상 존재합니다.");
+        }
     }
 }

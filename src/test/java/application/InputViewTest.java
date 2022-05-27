@@ -47,6 +47,21 @@ class InputViewTest {
         assertThatThrownBy(inputView::askCarName).isInstanceOf(IllegalCarNameException.class);
     }
     
+    @Test
+    @DisplayName("같은이름을 검증하는지 테스트")
+    void test4() {
+        //given
+        String input = "eeee,eeee,sdf\n";
+        String input2 = "5";
+    
+        // when
+        setTwoSystemInputStream(input, input2);
+    
+        // then
+        InputView inputView = new InputView();
+        assertThatThrownBy(inputView::askCarName).isInstanceOf(IllegalCarNameException.class);
+    }
+    
     private void setTwoSystemInputStream(String input, String input2) {
         ByteArrayInputStream inputStream = new ByteArrayInputStream(input.getBytes(StandardCharsets.UTF_8));
         ByteArrayInputStream inputStream2 = new ByteArrayInputStream(input2.getBytes(StandardCharsets.UTF_8));
